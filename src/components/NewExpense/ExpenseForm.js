@@ -43,11 +43,11 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseData = {
-      title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate)
-    }
+  const expenseData = {
+    title: enteredTitle,
+    amount: +enteredAmount,
+    date: new Date(enteredDate),
+  }
     
     //pass a pointer to a function to be executed in NewExpense component
     props.onSaveExpenseData(expenseData)
@@ -73,6 +73,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new_expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
